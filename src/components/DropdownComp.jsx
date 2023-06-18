@@ -7,7 +7,7 @@ import { ButtonGroup } from 'react-bootstrap';
 
 function NestedExample() {
   return (
-    <ButtonGroup>
+    <ButtonGroup className='ButtonGroup'>
       <Button>1</Button>
       <Button>2</Button>
 

@@ -8,7 +8,7 @@ import CardImgComp from './CardImgComp';
 
 function ResponsiveAutoExample() {
   return (
-    <Container>
+    <Container className='ContainerComp'>
       <Row className='section1'>
         <Col className='CarouselDropdown' sm={6}>
             <div><CarouselComp/></div><DropdownComp/></Col>

@@ -15,7 +15,6 @@ code {
 }
 
 
-
 * {
     margin: 0;
     padding: 0;
@@ -33,7 +32,7 @@ body {
 h1 {
     color: #fff !important;
     font-size: larger!important;
-    font-size: 50px!important;
+    font-size: 65px!important;
 }
 
 .section1 {display: flex;
@@ -53,6 +52,9 @@ h1 {
   margin-bottom: 50px;
 }
 
-.Logo {
-  width: -100px;
+.ButtonGroup {margin-bottom: 50px;}
+
+.ContainerComp {
+  margin-top: -50px;
+  margin-bottom: -50px;
 }

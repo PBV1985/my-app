@@ -1,14 +1,9 @@
 
 import ContainerComp from '../components/ContainerComp';
 
-
-
-
 export const Home = () =>{
-    return (
-    
-
+    return (<div className='ContainerComp'>
     <ContainerComp/>  
-       
+    </div>   
     );
 }
