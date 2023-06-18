@@ -4,22 +4,22 @@ import {AppRouter} from './AppRouter';
 import './App.css';
 import './css/login.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarComp from './components/NavbarComp';
+import Layout from './components/LayoutComp';
+
 
 
 
 
 
 export const App = () => {
-  return (<div className='App'>
-    <div className='navBar'>
-    <NavbarComp/>  
-    </div>
+  return (
+  <Layout>
+  <div className='App'> 
     <div className='AppRouter'>
     <AppRouter/>
     </div>
-  
   </div>
+  </Layout>
     
     
     

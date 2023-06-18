@@ -1,14 +1,16 @@
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import img1 from '../img/stack-blank-black-business-cards-wooden-background.jpg'
+
 
 function GridExample() {
   return (
     <Row xs={1} md={3} className="g-4">
-      {Array.from({ length: 3 }).map((_, idx) => (
+      {Array.from({ length: 3}).map((_, idx) => (
         <Col key={idx}>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src={img1} />
             <Card.Body>
               <Card.Title>Card title</Card.Title>
               <Card.Text>
@@ -17,10 +19,13 @@ function GridExample() {
                 longer.
               </Card.Text>
             </Card.Body>
+                
           </Card>
         </Col>
       ))}
     </Row>
+
+    
   );
 }
 
