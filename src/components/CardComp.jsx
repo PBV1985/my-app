@@ -1,4 +1,5 @@
 import Card from 'react-bootstrap/Card';
+import ButtonComp from './ButtonComp'
 
 function BgColorExample() {
   return (
@@ -13,10 +14,9 @@ function BgColorExample() {
         >
           <Card.Header><h1>Discover the world of movies!</h1></Card.Header>
           <Card.Body>
-            <Card.Title>{variant} Card Title </Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+            <Card.Title></Card.Title>
+            <Card.Text className='text-center'>
+            <ButtonComp/>
             </Card.Text>
           </Card.Body>
         </Card>
