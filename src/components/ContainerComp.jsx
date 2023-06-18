@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import CarouselComp from './CarouselComp';
 import DropdownComp from './DropdownComp';
 import CardComp from './CardComp';
+import CardImgComp from './CardImgComp';
 
 function ResponsiveAutoExample() {
   return (
@@ -13,10 +14,14 @@ function ResponsiveAutoExample() {
             <div><CarouselComp/></div><DropdownComp/></Col>
         <Col className='text' sm={5}><CardComp/></Col>
       </Row>
-      <Row>
-        <Col sm>sm=true</Col>
-        <Col sm>sm=true</Col>
-        <Col sm>sm=true</Col>
+      <Row className='firstLine'>
+        <Col sm><CardImgComp/></Col>
+      </Row>
+      <Row className='secondLine'>
+        <Col sm><CardImgComp/></Col>
+      </Row>
+      <Row className='thirdLine'>
+        <Col sm><CardImgComp/></Col>
       </Row>
     </Container>
   );

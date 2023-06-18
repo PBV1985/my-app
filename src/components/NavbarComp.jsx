@@ -4,12 +4,13 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import img1 from '../img/—Pngtree—movie board icon_4751062.png'
 
 function NavScrollExample() {
   return (
     <Navbar expand="lg" className="bg-primary-subtle sticky-top">
       <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Brand href="#"><img className ='Logo d-block w-50' src={img1} alt = "Logo" style={{ maxHeight: '150px' }}></img></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
         

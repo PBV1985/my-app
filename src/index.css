@@ -38,5 +38,21 @@ h1 {
 
 .section1 {display: flex;
   align-items: center;
-  
+  margin-bottom: 50px;
+}
+
+.firstLine {
+  margin-bottom: 50px;
+}
+
+.secondLine {
+  margin-bottom: 50px;
+}
+
+.thirdLine {
+  margin-bottom: 50px;
+}
+
+.Logo {
+  width: -100px;
 }
