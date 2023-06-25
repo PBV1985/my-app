@@ -4,7 +4,7 @@ import ButtonComp from './ButtonComp'
 function BgColorExample() {
   return (
     <>
-      {['Secondary'].map((variant) => (
+      {['Info'].map((variant) => (
         <Card
           bg={variant.toLowerCase()}
           key={variant}
