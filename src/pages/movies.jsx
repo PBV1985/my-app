@@ -1,8 +1,8 @@
-import MoviesComp from '../components/MoviesComp';
+import MoviesComp from '../components/MoviesComp'
 
 export const Movies = () =>{
-    return (<div className='movies'>
-    <MoviesComp />  
+    return (<div>
+    <MoviesComp/>  
     </div>   
     );
 }
