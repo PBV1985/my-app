@@ -8,7 +8,7 @@ import CardComp from '../components/CardComp';
 import CardImgComp from '../components/CardImgComp';
 
 export const Home = () =>{
-    return (<div className='ContainerComp'>
+    return (
      <Container className='ContainerComp'>
       <Row className='section1'>
         <Col className='CarouselDropdown' sm={6}>
@@ -25,6 +25,6 @@ export const Home = () =>{
         <Col sm><CardImgComp/></Col>
       </Row>
     </Container>
-    </div>   
+       
     );
 }
