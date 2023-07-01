@@ -26,6 +26,7 @@ body {
     
     min-height: 920px;
     background-color: #23242a!important;
+  
 }
 
 
@@ -34,6 +35,8 @@ h1 {
     font-size: larger!important;
     font-size: 65px!important;
 }
+
+
 
 .section1 {display: flex;
   align-items: center;
@@ -58,3 +61,4 @@ h1 {
   margin-top: -50px;
   margin-bottom: -50px;
 }
+

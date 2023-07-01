@@ -7,6 +7,10 @@ import DropdownComp from '../components/DropdownComp';
 import CardComp from '../components/CardComp';
 import CardImgComp from '../components/CardImgComp';
 
+
+
+
+
 export const Home = () =>{
     return (
      <Container className='ContainerComp'>

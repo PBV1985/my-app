@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import img1 from '../img/stack-blank-black-business-cards-wooden-background.jpg'
-
+import '../css/CardComp.css'
 
 function GridExample() {
   return (
