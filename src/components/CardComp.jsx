@@ -1,5 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import ButtonComp from './ButtonComp';
+import styles from '../css/CardComp.css'
+
 function BgColorExample() {
   return (
     <>

@@ -11,8 +11,10 @@ import CardImgComp from '../components/CardImgComp';
 
 
 
+
 export const Home = () =>{
     return (
+      
      <Container className='ContainerComp'>
       <Row className='section1'>
         <Col className='CarouselDropdown' sm={6}>
@@ -20,12 +22,6 @@ export const Home = () =>{
         <Col className='text' sm={5}><CardComp/></Col>
       </Row>
       <Row className='firstLine'>
-        <Col sm><CardImgComp/></Col>
-      </Row>
-      <Row className='secondLine'>
-        <Col sm><CardImgComp/></Col>
-      </Row>
-      <Row className='thirdLine'>
         <Col sm><CardImgComp/></Col>
       </Row>
     </Container>

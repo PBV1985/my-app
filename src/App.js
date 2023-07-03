@@ -13,7 +13,7 @@ import Layout from './components/LayoutComp';
 
 export const App = () => {
   return (
-  <Layout className='background'>
+  <Layout>
   <div className='App'> 
     <div className='AppRouter'>
     <AppRouter/>

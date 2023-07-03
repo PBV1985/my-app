@@ -1,55 +1,47 @@
-import { useState } from 'react';
+
 import Carousel from 'react-bootstrap/Carousel';
-import img1 from '../img/sajad-nori-s1puI2BWQzQ-unsplash.jpg'
-import img2 from '../img/tugba-fKC47FgTsVY-unsplash.jpg'
-import img3 from '../img/zhang-kaiyv-ECfPmkOVZPA-unsplash.jpg'
+import { config } from '../api/config';
+import { useEffect, useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+
 
 function ControlledCarousel() {
+  const baseURL = config.apiBaseUrl
+  const apiKey = config.apiKey
+  const imgURL = config.ImageBaseUrl;
+  
   const [index, setIndex] = useState(0);
-
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
 
+  const [movies, setMovies] = useState([]);
+  useEffect (() => {
+    fetch(`${baseURL}discover/movie?api_key=${apiKey}`)
+    .then ((response)=>response.json())
+    .then ((data)=>{
+      setMovies(data.results)
+    });
+  },[]);
+
+
   return (
     <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={img1}
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={img2}
-          alt="Second slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={img3}
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
+      {movies.map((movie) =>(
+        <Carousel.Item key={movie.id}>
+          <RouterLink to={`/movie/?${movie.id}`}>
+            <img className="d-block w-100"
+            src = {`${imgURL}${movie.poster_path}`}
+            alt='slide'/>
+          </RouterLink>
+          <Carousel.Caption>
+            <p>{movie.realease_date}</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      )
+      )}
+      
+        
     </Carousel>
   );
 }
