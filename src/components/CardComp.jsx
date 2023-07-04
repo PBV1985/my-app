@@ -1,6 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import ButtonComp from './ButtonComp';
-import '../css/CardComp.css'
+import '../css/cardComp.css'
+
 
 function BgColorExample() {
   return (
@@ -11,10 +12,10 @@ function BgColorExample() {
           key={variant}
           text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
           style={{ width: '25rem'}}
-          className="mb-2 CardColor"
+          className="mb-2 CardColor "
         >
-          <Card.Header><h1>Discover the world of movies!</h1></Card.Header>
-          <Card.Body>
+          <Card.Header className='bg-dark-subtle '><h1 className='classDiscover'>Discover the world of movies!</h1></Card.Header>
+          <Card.Body className='bg-dark-subtle'>
             <Card.Title></Card.Title>
             <Card.Text className='text-center'>
             <ButtonComp/>

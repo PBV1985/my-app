@@ -58,17 +58,16 @@ function GridExample() {
  movies&&
 movies.map((movie) => {
  return(
-  <Col key={movie.id}>
-    <Card>
+  <Col className='col-sm d-flex' key={movie.id}>
+    <Card className=''>
       <Card.Img variant="top" src={`${imgURL}${movie.poster_path}`} alt='movie'/>
       <Card.Body>
-        <Card.Title>{movie.title}</Card.Title>
+        <Card.Title className='col-sm d-flex shadow-lg  bg-body-tertiary rounded'>{movie.title}</Card.Title>
         
         <Card.Text>
         {movie.release_date}
         </Card.Text>
       </Card.Body>
-         
     </Card>
   </Col>
 );
