@@ -17,7 +17,7 @@ function ControlledCarousel() {
 
   const [movies, setMovies] = useState([]);
   useEffect (() => {
-    fetch(`${baseURL}discover/movie?api_key=${apiKey}`)
+    fetch(`${baseURL}movie/upcoming?api_key=${apiKey}`)
     .then ((response)=>response.json())
     .then ((data)=>{
       setMovies(data.results)
@@ -29,7 +29,7 @@ function ControlledCarousel() {
     <Carousel activeIndex={index} onSelect={handleSelect}>
       {movies.map((movie) =>(
         <Carousel.Item key={movie.id}>
-          <RouterLink to={`/movie/?${movie.id}`}>
+          <RouterLink to={`/movie/${movie.id}`}>
             <img className="d-block w-100"
             src = {`${imgURL}${movie.poster_path}`}
             alt='slide'/>
