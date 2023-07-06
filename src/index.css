@@ -36,6 +36,10 @@ h1 {
     font-size: 65px!important;
 }
 
+h3 {
+  color: rgb(218, 177, 82)!important;
+}
+
 
 
 .section1 {display: flex;
