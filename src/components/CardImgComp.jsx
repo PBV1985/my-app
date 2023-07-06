@@ -22,7 +22,7 @@ function GridExample() {
 
   return (
 
- <Row xs={1} md={4} className="g-4">
+ <Row xs={1} md={4} className="g-4 ">
 {
  movies&&
 movies.map((movie) => {
@@ -31,9 +31,9 @@ movies.map((movie) => {
     <Card className=''>
       <Card.Img variant="top" src={`${imgURL}${movie.poster_path}`} alt='movie'/>
       <Card.Body>
-        <Card.Title className='col-sm d-flex shadow-lg  bg-body-tertiary rounded'>{movie.title}</Card.Title>
+        <Card.Title className='col-sm d-flex shadow-lg bg-body-tertiary rounded'>{movie.title}</Card.Title>
         
-        <Card.Text>
+        <Card.Text className='align-items-start col-9'>
         {movie.release_date}
         </Card.Text>
       </Card.Body>
