@@ -2,10 +2,11 @@
     .box {
         position: relative;
         width: 360px;
-        height: 420px;
+        height: 560px;
         background: #1c1c1c;
         border-radius: 8px;
         overflow: hidden;
+        
         
        
     }
@@ -16,11 +17,12 @@
         top: -50%;
         left: -50%;
         width: 380px;
-        height: 420px;
+        height: 560px;
         background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
         z-index: 1;
         transform-origin: bottom right;
         animation: animate 6s linear infinite;
+        animation-delay: -6s;
     }
     
     .box::after {
@@ -29,7 +31,7 @@
         top: -50%;
         left: -50%;
         width: 380px;
-        height: 420px;
+        height: 560px;
         background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
         z-index: 1;
         transform-origin: bottom right;
@@ -49,7 +51,7 @@
         top: -50%;
         left: -50%;
         width: 380px;
-        height: 420px;
+        height: 560px;
         background: linear-gradient(0deg, transparent, transparent, #ff2770, #ff2770, #ff2770);
         z-index: 1;
         transform-origin: bottom right;
@@ -63,7 +65,7 @@
         top: -50%;
         left: -50%;
         width: 380px;
-        height: 420px;
+        height: 560px;
         background: linear-gradient(0deg, transparent, transparent, #ff2770, #ff2770, #ff2770);
         z-index: 1;
         transform-origin: bottom right;
@@ -85,7 +87,7 @@
         position: absolute;
         inset: 4px;
         background: #222;
-        padding: 50px 40px;
+        padding: 50px 30px;
         border-radius: 8px;
         z-index: 2;
         display: flex;

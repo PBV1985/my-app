@@ -4,20 +4,20 @@ export const Login = () => {
     <div className="Login">
       <header className="Login-header">
       <div class="box">
-        <span class="borderLine"></span>
+        <span className="borderLine"></span>
         <form>
-            <h2>Sign in</h2>
-            <div class="inputBox">
+            <h2>Login</h2>
+            <div className="inputBox">
                 <input type="text" required="required"/>
                 <span>Username</span>
                 <i></i>
             </div>
-            <div class="inputBox">
+            <div className="inputBox">
                 <input type="password" required="required"/>
                 <span>Password</span>
                 <i></i>
             </div>
-            <div class="links">
+            <div className="links">
                 <a href="#">Forgot Password</a>
                 <a href="#">Signup</a>
             </div>

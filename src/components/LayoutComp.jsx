@@ -1,9 +1,6 @@
 import NavbarComp from './NavbarComp';
 import FooterComp from './FooterComp';
 
-
-
-
 const Layout = ({children}) => {
     return (
         <div>

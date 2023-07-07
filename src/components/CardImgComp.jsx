@@ -9,6 +9,7 @@ const apiKey = config.apiKey
 const imgURL = config.ImageBaseUrl;
 
 
+
 function GridExample() {
   const [movies, setMovies] = useState([]);
   useEffect (() => {
