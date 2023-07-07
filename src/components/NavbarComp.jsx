@@ -21,11 +21,9 @@ function NavScrollExample() {
             navbarScroll
           >
             <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Movies</Nav.Link>
-            <Nav.Link href="#action2">Actors</Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">SignUp</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Login</NavDropdown.Item>
+              <NavDropdown.Item href="#action2">SignUp</NavDropdown.Item>
+              <NavDropdown.Item href="#action3">Login</NavDropdown.Item>
             </NavDropdown>
     
           </Nav>

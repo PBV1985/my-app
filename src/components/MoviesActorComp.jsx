@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import { useState, useEffect } from "react";
 import { config } from '../api/config.js';
 
+
 const baseURL = config.apiBaseUrl
 const apiKey = config.apiKey
 const imgURL = config.ImageBaseUrl;
