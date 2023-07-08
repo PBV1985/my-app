@@ -2,9 +2,9 @@ import Button from 'react-bootstrap/Button';
 
 function OutlineTypesExample() {
   return (
-    <>
-      <Button variant="outline-danger">Discover</Button>{' '}
-    </>
+    <a href='/SignUp'>
+      <Button variant="outline-danger">Discover</Button>{''}
+    </a>
   );
 }
 
