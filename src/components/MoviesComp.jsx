@@ -10,45 +10,45 @@ const baseURL = config.apiBaseUrl;
 const apiKey = config.apiKey;
 const imgURL = config.ImageBaseUrl;
 
-function Actor() {
-  const [people, setPeople] = useState([]);
+function MoviesComp() {
+  const [movies, setMovies] = useState([]);
   const param = useParams();
-  const [movie, setMovie] = useState([]);
+  const [person, setPerson] = useState([]);
 
   useEffect(() => {
-    const movie = JSON.parse(localStorage.getItem("movie"));
-    if (movie) {
-      setMovie(movie);
+    const person = JSON.parse(localStorage.getItem("person"));
+    if (person) {
+      setPerson(person);
     }
-    fetch(`${baseURL}movie/${param.id}/credits?api_key=${apiKey}`)
+    fetch(`${baseURL}person/${param.id}/combined_credits?api_key=${apiKey}`)
       .then((response) => response.json())
       .then((data) => {
-        setPeople(data.cast);
+        setMovies(data.cast);
       });
   }, []);
 
   return (
     <Row xs={1} md={4} className="g-4 ">
-      {people &&
-        people.map((person) => {
+      {movies &&
+        movies.map((movie) => {
           return (
             <>
-              {person.profile_path && (
-                <Col className="col-sm d-flex" key={person.id}>
+              {movie.poster_path && (
+                <Col className="col-sm d-flex" key={movie.id}>
                   <Card className="">
-                    <RouterLink to={`/actor/${person.id}`}>
+                    <RouterLink to={`/actor/${movie.id}`}>
                       <Card.Img
                         variant="top"
-                        src={`${imgURL}${person.profile_path}`}
-                        alt="actor"
+                        src={`${imgURL}${movie.poster_path}`}
+                        alt="movie"
                       />
                     </RouterLink>
                     <Card.Body>
                       <Card.Title className="col-sm d-flex shadow-lg bg-body-tertiary rounded">
-                        Name: {person.name}
+                        Name:{movie.title}
                       </Card.Title>
                       <Card.Text className="align-items-start col-9">
-                        Character: {person.character}
+                        Release:{movie.release_date}
                       </Card.Text>
                     </Card.Body>
                   </Card>
@@ -61,4 +61,4 @@ function Actor() {
   );
 }
 
-export default Actor;
+export default MoviesComp;

@@ -5,12 +5,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './components/LayoutComp';
 
-
-
-
-
-
-
 export const App = () => {
   return (
   <Layout>
@@ -19,10 +13,7 @@ export const App = () => {
     <AppRouter/>
     </div>
   </div>
-  </Layout>
-    
-    
-    
+  </Layout> 
   )
 }
 

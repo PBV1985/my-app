@@ -6,7 +6,6 @@ import { Alert } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { config } from "../api/config.js";
 import { useParams } from "react-router-dom";
-import { Image } from "react-bootstrap";
 import MoviePeopleComp from "../components/MoviePeopleComp.jsx";
 
 const baseURL = config.apiBaseUrl;
@@ -38,10 +37,10 @@ export const Movie = () => {
         <div className="genres d-flex ">
           {genres &&
             genres.map((genre) => {
-              return <p>{genre.name}</p>;
+              return <p className="p-2">{genre.name}</p>;
             })}
         </div>
-        <Col sm={6}>
+        <Col sm={5}>
           <Card className="">
             {" "}
             <Card.Img
@@ -51,12 +50,14 @@ export const Movie = () => {
             />
           </Card>
         </Col>
-        <Col className="d-flex justify-content-end" sm={6}>
+        <Col className="d-flex" sm={5}>
           <div>
             {["dark"].map((variant) => (
               <Alert key={variant} variant={variant}>
-                <p>{movie.overview}</p>
-                <p></p>
+                <p>Realease date:{movie.realease_date}</p>
+                <p>Language:{movie.original_language}</p>
+                <p>Popularity:{movie.popularity}</p>
+                <p>Overview:{movie.overview}</p>
               </Alert>
             ))}
           </div>
