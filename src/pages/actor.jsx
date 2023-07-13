@@ -44,7 +44,14 @@ export const Actor = () => {
         <Col className="d-flex" sm={5}>
           <div>
             {["dark"].map((variant) => (
-              <Alert key={variant} variant={variant}></Alert>
+              <Alert key={variant} variant={variant}>
+                <p>Birthday: {person.birthday}</p>
+                <p>Place of birth: {person.place_of_birth}</p>
+                <p>Popularity: {person.popularity}</p>
+                <p>IMDB ID: {person.imdb_id}</p>
+                <p>Biography: {person.biography}</p>
+                <p>Death Day: {person.deathday}</p>
+              </Alert>
             ))}
           </div>
         </Col>
