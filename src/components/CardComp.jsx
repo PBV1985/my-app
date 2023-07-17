@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import ButtonComp from './ButtonComp';
-import '../css/cardComp.css'
+import '../css/CardComp.css'
 
 
 function BgColorExample() {

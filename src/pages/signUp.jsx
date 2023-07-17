@@ -4,6 +4,8 @@ import {ref,push,child,update} from "firebase/database";
 
 
 
+
+
 export const SignUp = () => {
     const [Name, setName] = useState(null);
     const [Email, setEmail] = useState(null);
@@ -29,17 +31,17 @@ export const SignUp = () => {
     const handleSubmit = () => {
 
         console.log(Name, Email,Username, Password);
-    //     let obj = {
-    //         Name : Name,
-    //         Email:Email,
-    //         Username:Username,
-    //         Password:Password,
+        let obj = {
+            Name : Name,
+            Email:Email,
+            Username:Username,
+            Password:Password,
             
-    //     }       
-    // const newPostKey = push(child(ref(database), 'posts')).key;
-    // const updates = {};
-    // updates['/' + newPostKey] = obj
-    // return update(ref(database), updates);
+        }       
+    const newPostKey = push(child(ref(database), 'posts')).key;
+    const updates = {};
+    updates['/' + newPostKey] = obj
+    return update(ref(database), updates);
 
     }
 
@@ -73,9 +75,9 @@ export const SignUp = () => {
                 <i></i>
             </div>
             <div className="links">
-                <a href="">Login</a>
+                <a href="#">Login</a>
             </div>
-            < button onClick={()=>handleSubmit()} type="submit"  value="Sign up"/>
+            <input onClick={()=>handleSubmit()} type="submit"  value="Sign up"/>
         </form>
     </div>   
     );
