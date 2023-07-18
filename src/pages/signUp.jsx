@@ -1,6 +1,7 @@
 import React, {useState, setState} from "react";
 import {database} from '../firebase'
 import {ref,push,child,update} from "firebase/database";
+import { Link as RouterLink } from "react-router-dom";
 
 
 
@@ -74,10 +75,13 @@ export const SignUp = () => {
                 <span>Password</span>
                 <i></i>
             </div>
+            <RouterLink to={`/login`}>
             <div className="links">
-                <a href="#">Login</a>
+                <a href="/login">Login</a>
             </div>
             <input onClick={()=>handleSubmit()} type="submit"  value="Sign up"/>
+            </RouterLink>
+            
         </form>
     </div>   
     );
