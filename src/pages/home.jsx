@@ -5,7 +5,7 @@ import CarouselComp from "../components/CarouselComp";
 import DropdownComp from "../components/DropdownComp";
 import CardComp from "../components/CardComp";
 import CardImgComp from "../components/CardImgComp";
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../firebase';
 

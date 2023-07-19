@@ -7,23 +7,24 @@ import {NavLink, useNavigate } from 'react-router-dom';
 
 export const Login = () => {
   const navigate = useNavigate();
-  const [Email, setEmail] = useState ('');
-  const [Password, setPassword] = useState ('');
+  const [email, setEmail] = useState ('');
+  const [password, setPassword] = useState ('');
 
   const onLogin = (e) => {
-    e.preventhDefault();
-    signInWithEmailAndPassword(auth, Email, Password)
-    .then((userCredential) =>{
-      const user = userCredential.user;
-     navigate("/home")
-      console.log(user);
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        const user = userCredential.user;
+        navigate("/")
+        console.log(user);
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log (errorCode, errorMessage)
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage)
     });
-  }
+   
+}
 
   return (
     <div className="Login">

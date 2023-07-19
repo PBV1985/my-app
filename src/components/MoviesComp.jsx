@@ -10,6 +10,7 @@ const baseURL = config.apiBaseUrl;
 const apiKey = config.apiKey;
 const imgURL = config.ImageBaseUrl;
 
+
 function MoviesComp() {
   const [movies, setMovies] = useState([]);
   const param = useParams();
