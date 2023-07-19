@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import { useState, useEffect } from "react";
 import { config } from "../api/config.js";
 import { Link as RouterLink } from "react-router-dom";
+import AddFavourite from "../components/AddFavourite";
 
 const baseURL = config.apiBaseUrl;
 const apiKey = config.apiKey;
@@ -21,6 +22,7 @@ function GridExample() {
 
   return (
     <Row xs={1} md={4} className="g-4 ">
+      
       {movies &&
         movies.map((movie) => {
           return (
@@ -40,6 +42,7 @@ function GridExample() {
                   <Card.Text className="align-items-start col-9">
                     {movie.release_date}
                   </Card.Text>
+                  {/* <movies={movie.id} favouriteComponent = {AddFavourite}/> */}
                 </Card.Body>
               </Card>
             </Col>

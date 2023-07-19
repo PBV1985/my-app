@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import img1 from '../img/—Pngtree—movie board icon_4751062.png';
 import { useState, useEffect } from "react";
 import { config } from "../api/config.js";
@@ -12,6 +11,9 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Link as RouterLink } from "react-router-dom";
 import { BrowserRouter } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase';
+
 
 
 
@@ -29,7 +31,7 @@ function NavScrollExample() {
 
   useEffect(() => {
   
-    fetch(`${baseURL}search/multi?api_key=${apiKey}&query`)
+    fetch(`${baseURL}search/movie?api_key=${apiKey}&query`)
       .then((response) => response.json())
       .then((data) => {
         setSearch(data.results);
@@ -54,6 +56,12 @@ function NavScrollExample() {
   const changeHandler = (e) =>{
     setQuery(e.target.value);
   }
+  const handleLogout = () => {               
+    signOut(auth).then(() => {
+    }).catch((error) => {
+      console.log(error);
+    });
+}
 
   return (
 
@@ -69,10 +77,11 @@ function NavScrollExample() {
             navbarScroll
           >
           <Nav.Link href="/">Home</Nav.Link>
-          <NavDropdown title="Link" id="navbarScrollingDropdown">
-            <NavDropdown.Item href="/signUp">SignUp</NavDropdown.Item>
-            <NavDropdown.Item href="/login">Login</NavDropdown.Item>
-          </NavDropdown>
+          
+            <Nav.Link href="/signUp">SignUp</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
+            <Nav.Link href="/signUp" onClick={handleLogout}>Logout</Nav.Link>
+         
           </Nav>
           <Form className="d-flex" onSubmit={searchMovie}>
             <Form.Control
@@ -89,10 +98,13 @@ function NavScrollExample() {
         </Container>
         </Navbar>
         <BrowserRouter>
+  
         <Row xs={1} md={4} className="g-4 ">
       {search &&
         search.map((movie) => {
           return (
+            // <>
+            // {movie.poster_path && (
             <Col className="col-sm d-flex" key={movie.id}>
               <Card className="">
                 <RouterLink to={`/movie/${movie.id}`}>
@@ -112,12 +124,12 @@ function NavScrollExample() {
                 </Card.Body>
               </Card>
             </Col>
+            //  )}
+            //  </>
           );
         })}
     </Row>
         </BrowserRouter>
-          
-
         </>
     
 
