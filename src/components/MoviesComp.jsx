@@ -31,13 +31,13 @@ function MoviesComp() {
   return (
     <Row xs={1} md={4} className="g-4 ">
       {movies &&
-        movies.map((movie) => {
+        movies.map((movie,index) => {
           return (
             <>
               {movie.poster_path && (
                 <Col className="col-sm d-flex" key={movie.id}>
                   <Card className="">
-                    <RouterLink to={`/actor/${movie.id}`}>
+                    <RouterLink to={`/movie/${movie.id}`}>
                       <Card.Img
                         variant="top"
                         src={`${imgURL}${movie.poster_path}`}

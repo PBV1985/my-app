@@ -4,7 +4,11 @@ import Row from "react-bootstrap/Row";
 import { useState, useEffect } from "react";
 import { config } from "../api/config.js";
 import { Link as RouterLink } from "react-router-dom";
-import AddFavourite from "../components/AddFavourite";
+import { FavoritesContext } from "../Favourites/context";
+import { addToFavorites } from "../Favourites/actions";
+
+import { useContext } from "react";
+import { Button } from "react-bootstrap";
 
 const baseURL = config.apiBaseUrl;
 const apiKey = config.apiKey;
@@ -12,6 +16,8 @@ const imgURL = config.ImageBaseUrl;
 
 function GridExample() {
   const [movies, setMovies] = useState([]);
+  const { favoritesDispatch } = useContext(FavoritesContext);
+  
   useEffect(() => {
     fetch(`${baseURL}discover/movie?api_key=${apiKey}`)
       .then((response) => response.json())
@@ -20,9 +26,15 @@ function GridExample() {
       });
   }, []);
 
+  function handleAddToFavourites(movie) {
+    // Apelam actiunea, cu payload-ul aferent.
+    const actionResult = addToFavorites(movie);
+    // Trimitem rezultatul actiunii catre reducer.
+    favoritesDispatch(actionResult);
+  }
+
   return (
     <Row xs={1} md={4} className="g-4 ">
-      
       {movies &&
         movies.map((movie) => {
           return (
@@ -42,7 +54,17 @@ function GridExample() {
                   <Card.Text className="align-items-start col-9">
                     {movie.release_date}
                   </Card.Text>
-                  {/* <movies={movie.id} favouriteComponent = {AddFavourite}/> */}
+                  <Button
+                  variant="outline-success"
+                  onClick={() => {
+                    handleAddToFavourites({
+                      id: movie.id,
+                      image: movie.poster_path,
+                      title: movie.title,
+                    });
+                  }}>
+                  Adaugă la favorite
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>
