@@ -6,7 +6,6 @@ import { config } from "../api/config.js";
 import { Link as RouterLink } from "react-router-dom";
 import { FavoritesContext } from "../Favourites/context";
 import { addToFavorites } from "../Favourites/actions";
-
 import { useContext } from "react";
 import { Button } from "react-bootstrap";
 
@@ -56,7 +55,7 @@ function GridExample() {
                   </Card.Text>
                   <Button
                   variant="outline-success"
-                  onClick={() => {
+                  onClick={() => { 
                     handleAddToFavourites({
                       id: movie.id,
                       image: movie.poster_path,

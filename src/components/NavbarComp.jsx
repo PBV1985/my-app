@@ -18,9 +18,7 @@ import SearchBox from '../components/SearchBox';
 const baseURL = config.apiBaseUrl;
 const apiKey = config.apiKey;
 
-
 function NavScrollExample() {
-  //const { state } = useContext(FavoritesContext);
 
   const [search, setSearch] = useState([]);
   const [query, setQuery] = useState('');
