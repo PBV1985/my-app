@@ -14,7 +14,8 @@ const imgURL = config.ImageBaseUrl;
 
 export const Movie = () => {
   const [movie, setMovie] = useState([]);
-  const param = useParams();
+  let { id } = useParams();
+  id = decodeURI(id);
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
@@ -22,13 +23,13 @@ export const Movie = () => {
     if (movie) {
       setMovie(movie);
     }
-    fetch(`${baseURL}movie/${param.id}?api_key=${apiKey}`)
+    fetch(`${baseURL}movie/${id}?api_key=${apiKey}`)
       .then((response) => response.json())
       .then((data) => {
         setMovie(data);
         setGenres(data.genres);
       });
-  }, []);
+  }, [id]);
 
   return (
     <Container>

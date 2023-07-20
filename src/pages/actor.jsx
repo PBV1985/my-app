@@ -14,19 +14,20 @@ const imgURL = config.ImageBaseUrl;
 
 export const Actor = () => {
   const [person, setPerson] = useState([]);
-  const param = useParams();
+  let { id } = useParams();
+  id = decodeURI(id);
 
   useEffect(() => {
     const person = JSON.parse(localStorage.getItem("person"));
     if (person) {
       setPerson(person);
     }
-    fetch(`${baseURL}person/${param.id}?api_key=${apiKey}`)
+    fetch(`${baseURL}person/${id}?api_key=${apiKey}`)
       .then((response) => response.json())
       .then((data) => {
         setPerson(data);
       });
-  }, []);
+  }, [id]);
   return (
     <Container>
       <Row className="">
