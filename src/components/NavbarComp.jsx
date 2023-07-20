@@ -8,10 +8,11 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { BrowserRouter } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
-import { auth } from '../firebase';
 import MovieList from '../components/MovieList';
 import MovieListHeading from '../components/MovieListHeading';
 import SearchBox from '../components/SearchBox';
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from '../firebase';
 
 
 
@@ -22,9 +23,12 @@ function NavScrollExample() {
 
   const [search, setSearch] = useState([]);
   const [query, setQuery] = useState('');
+  const [loggedUser, setLoggedUser] = useState('');
+  const [logoutUser, setLogoutUser] = useState ('');
 
-  const searchMovie = async(query) => {
-    
+
+  const searchMovie = async (query) => {
+
     try {
       const url = `${baseURL}search/movie?api_key=${apiKey}&query=${query}`
       const res = await fetch(url);
@@ -32,7 +36,7 @@ function NavScrollExample() {
       setSearch(data.results);
       console.log(data.results);
     }
-    catch(e) {
+    catch (e) {
       console.log(e);
     }
   }
@@ -41,7 +45,27 @@ function NavScrollExample() {
     searchMovie(query);
   }, [query]);
 
-  const handleLogout = () => {               
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const uid = user.uid;
+      setLogoutUser(uid);
+    } else {
+      console.log("user is logged out")
+    }
+  });
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const uid = user.uid;
+      setLoggedUser(uid);
+    } else {
+      console.log("user is login")
+    }
+  });
+
+
+
+  const handleLogout = () => {
     signOut(auth).then(() => {
     }).catch((error) => {
       console.log(error);
@@ -62,11 +86,17 @@ function NavScrollExample() {
               navbarScroll
             >
               <Nav.Link href="/">Home</Nav.Link>
+              {(logoutUser &&
               <Nav.Link href="/favorites">Favorites</Nav.Link>
+              )}
+              {(logoutUser &&
+              <Nav.Link href="/signUp" onClick={handleLogout}>Logout</Nav.Link> )}
+             {!loggedUser && (
               <Nav.Link href="/signUp">SignUp</Nav.Link>
+             )}
+             {!loggedUser && (
               <Nav.Link href="/login">Login</Nav.Link>
-              <Nav.Link href="/signUp" onClick={handleLogout}>Logout</Nav.Link>
-
+             )}
             </Nav>
             <SearchBox searchValue={query} setSearchValue={setQuery} />
           </Navbar.Collapse>

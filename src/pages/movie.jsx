@@ -17,7 +17,6 @@ export const Movie = () => {
   let { id } = useParams();
   id = decodeURI(id);
   const [genres, setGenres] = useState([]);
-
   useEffect(() => {
     const movie = JSON.parse(localStorage.getItem("movie"));
     if (movie) {
