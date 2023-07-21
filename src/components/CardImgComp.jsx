@@ -4,8 +4,8 @@ import Row from "react-bootstrap/Row";
 import { useState, useEffect } from "react";
 import { config } from "../api/config.js";
 import { Link as RouterLink } from "react-router-dom";
-import { FavoritesContext } from "../Favourites/context";
-import { addToFavorites } from "../Favourites/actions";
+import { FavoritesContext } from "../Favorites/context";
+import { addToFavorites } from "../Favorites/actions";
 import { useContext } from "react";
 import { Button } from "react-bootstrap";
 
@@ -53,7 +53,6 @@ function GridExample() {
                   <Card.Text className="align-items-start col-9">
                     {movie.release_date}
                   </Card.Text>
-                  
                 </Card.Body>
                 <Button
                   variant="outline-success"
