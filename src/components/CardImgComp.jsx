@@ -53,7 +53,9 @@ function GridExample() {
                   <Card.Text className="align-items-start col-9">
                     {movie.release_date}
                   </Card.Text>
-                  <Button
+                  
+                </Card.Body>
+                <Button
                   variant="outline-success"
                   onClick={() => { 
                     handleAddToFavourites({
@@ -64,7 +66,6 @@ function GridExample() {
                   }}>
                   Adaugă la favorite
                   </Button>
-                </Card.Body>
               </Card>
             </Col>
           );

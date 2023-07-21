@@ -4,7 +4,7 @@ function WithHeaderAndQuoteExample() {
   return (
     <Card>
       <Card.Header className="footer bg-black-subtle sticky-xxl-bottom text-center">
-        Quote
+      © Bogdan ITSchool 2023
       </Card.Header>
     </Card>
   );

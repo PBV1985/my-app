@@ -54,7 +54,7 @@ export const Movie = () => {
           <div>
             {["dark"].map((variant) => (
               <Alert key={variant} variant={variant}>
-                <p>Release date:{movie.realease_date}</p>
+                <p>Release date:{movie.release_date}</p>
                 <p>Language:{movie.original_language}</p>
                 <p>Popularity:{movie.popularity}</p>
                 <p>Overview:{movie.overview}</p>
