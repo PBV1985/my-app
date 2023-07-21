@@ -9,6 +9,7 @@ import {
   favoritesReducer
 } from "./Favourites/reducer";
 import { FavoritesContext } from "./Favourites/context";
+import ScrollToTop from './components/scrollTo';
 
 export const App = () => {
   const [favoritesState, favoritesDispatch] = useReducer(
@@ -20,16 +21,19 @@ export const App = () => {
     favoritesDispatch
   };
   return (
+  
     <FavoritesContext.Provider value={favoritesContextValue}>
   <Layout>
   <div className='App'> 
     <div className='AppRouter'>
     <AppRouter/>
+    <ScrollToTop />
     </div>
   </div>
   </Layout> 
   </FavoritesContext.Provider>
-  )
+ 
+  );
 }
 
 export default App;

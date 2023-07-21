@@ -22,7 +22,7 @@ export function Favorites() {
     <div>
       {/* Afisam produsele favorite pe ecran. */}
       {favoritesState.movies.length === 0 ? (
-        <h1>Nu ai produse favorite.</h1>
+        <h1>Nu ai filme favorite.</h1>
       ) : (
         favoritesState.movies.map((movie) => {
           return (
