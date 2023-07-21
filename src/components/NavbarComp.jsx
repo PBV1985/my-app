@@ -14,8 +14,6 @@ import SearchBox from '../components/SearchBox';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../firebase';
 
-
-
 const baseURL = config.apiBaseUrl;
 const apiKey = config.apiKey;
 
@@ -23,12 +21,24 @@ function NavScrollExample() {
 
   const [search, setSearch] = useState([]);
   const [query, setQuery] = useState('');
-  const [loggedUser, setLoggedUser] = useState('');
 
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const uid = user.uid;
+      console.log(uid);
+    } else {
+      console.log("user is logged out")
+    }
+  });
 
+  const handleLogout = () => {
+    signOut(auth).then(() => {
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 
   const searchMovie = async (query) => {
-
     try {
       const url = `${baseURL}search/movie?api_key=${apiKey}&query=${query}`
       const res = await fetch(url);
@@ -45,25 +55,6 @@ function NavScrollExample() {
     searchMovie(query);
   }, [query]);
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const uid = user.uid;
-      setLoggedUser(uid);
-    } else {
-      console.log("user is logged out")
-    }
-  });
-
-
-
-
-  const handleLogout = () => {
-    signOut(auth).then(() => {
-    }).catch((error) => {
-      console.log(error);
-    });
-  }
-
   return (
 
     <>
@@ -78,17 +69,10 @@ function NavScrollExample() {
               navbarScroll
             >
               <Nav.Link href="/">Home</Nav.Link>
-              {(loggedUser &&
               <Nav.Link href="/favorites">Favorites</Nav.Link>
-              )}
-              {(loggedUser &&
-              <Nav.Link href="/signUp" onClick={handleLogout}>Logout</Nav.Link> )}
-             {!loggedUser && (
+              <Nav.Link href="/signUp" onClick={handleLogout}>Logout</Nav.Link> 
               <Nav.Link href="/signUp">SignUp</Nav.Link>
-             )}
-             {!loggedUser && (
               <Nav.Link href="/login">Login</Nav.Link>
-             )}
             </Nav>
             <SearchBox searchValue={query} setSearchValue={setQuery} />
           </Navbar.Collapse>
