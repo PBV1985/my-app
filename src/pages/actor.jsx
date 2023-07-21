@@ -13,7 +13,7 @@ const apiKey = config.apiKey;
 const imgURL = config.ImageBaseUrl;
 
 export const Actor = () => {
-  const [person, setPerson] = useState([]);
+  const [person, setPerson] = useState([apiKey]);
   let { id } = useParams();
   id = decodeURI(id);
 

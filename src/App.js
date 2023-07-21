@@ -7,8 +7,8 @@ import { useReducer } from "react";
 import {
   initialState as favoritesInitialState,
   favoritesReducer
-} from "./Favourites/reducer";
-import { FavoritesContext } from "./Favourites/context";
+} from "./Favorites/reducer";
+import { FavoritesContext } from "./Favorites/context";
 import ScrollToTop from './components/scrollTo';
 
 export const App = () => {

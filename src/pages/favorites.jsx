@@ -1,8 +1,8 @@
 // Importam ce avem nevoie.
 import { useContext } from "react";
-import { FavoritesContext } from "../Favourites/context";
+import { FavoritesContext } from "../Favorites/context";
 import Button from "react-bootstrap/Button";
-import { removeFromFavorites } from "../Favourites/actions";
+import { removeFromFavorites } from "../Favorites/actions";
 import { config } from "../api/config.js";
 
 const imgURL = config.ImageBaseUrl;
