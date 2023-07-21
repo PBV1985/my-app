@@ -12,7 +12,7 @@ export const initialState = {
         });
         // Daca avem deja produsul in lista de favorite, returnam lista, nemodificata.
         if (foundMovie) {
-
+            console.log(foundMovie)
           return state;
           
           // Daca nu avem produsul in lista, il adaugam.
