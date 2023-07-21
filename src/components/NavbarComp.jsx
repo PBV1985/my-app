@@ -14,6 +14,7 @@ import SearchBox from '../components/SearchBox';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../firebase';
 
+
 const baseURL = config.apiBaseUrl;
 const apiKey = config.apiKey;
 
@@ -21,15 +22,7 @@ function NavScrollExample() {
 
   const [search, setSearch] = useState([]);
   const [query, setQuery] = useState('');
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const uid = user.uid;
-      console.log(uid);
-    } else {
-      console.log("user is logged out")
-    }
-  });
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   const handleLogout = () => {
     signOut(auth).then(() => {
@@ -52,6 +45,16 @@ function NavScrollExample() {
   }
 
   useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("user is logged in");
+        setIsUserLoggedIn(true);
+      } else {
+        // User is logged out
+        console.log("user is logged out");
+        setIsUserLoggedIn(false);
+      }
+    });
     searchMovie(query);
   }, [query]);
 
@@ -69,10 +72,10 @@ function NavScrollExample() {
               navbarScroll
             >
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/favorites">Favorites</Nav.Link>
-              <Nav.Link href="/signUp" onClick={handleLogout}>Logout</Nav.Link> 
-              <Nav.Link href="/signUp">SignUp</Nav.Link>
-              <Nav.Link href="/login">Login</Nav.Link>
+              {isUserLoggedIn && <Nav.Link href="/favorites">Favorites</Nav.Link>}
+              {isUserLoggedIn && <Nav.Link href="/signUp" onClick={handleLogout}>Logout</Nav.Link>} 
+              {!isUserLoggedIn && <Nav.Link href="/signUp">SignUp</Nav.Link>}
+              {!isUserLoggedIn && <Nav.Link href="/login">Login</Nav.Link>}
             </Nav>
             <SearchBox searchValue={query} setSearchValue={setQuery} />
           </Navbar.Collapse>
