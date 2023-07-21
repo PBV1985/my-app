@@ -3,15 +3,35 @@ import { Home } from "./pages/home";
 import { Login } from "./pages/login";
 import { Movie } from "./pages/movie";
 import { SignUp } from "./pages/signUp";
-import { Link } from "react-router-dom";
 import { Actor } from "./pages/actor";
 import { Favorites } from "./pages/favorites";
+import { useReducer } from "react";
+import {
+  initialState as favoritesInitialState,
+  favoritesReducer
+} from "./Favorites/reducer";
+import { FavoritesContext } from "./Favorites/context";
+
+
+
 
 export const AppRouter = () => {
-  const value = `/movie/`;
+
+  const [favoritesState, favoritesDispatch] = useReducer(
+    favoritesReducer,
+    favoritesInitialState
+  );
+  const favoritesContextValue = {
+    favoritesState,
+    favoritesDispatch
+  };
+
+
   return (
+    
+    <FavoritesContext.Provider value={favoritesContextValue}>
     <Router>
-      <Link to={value}></Link>
+     
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -21,5 +41,6 @@ export const AppRouter = () => {
         <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </Router>
+    </FavoritesContext.Provider>
   );
 };
