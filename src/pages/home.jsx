@@ -2,7 +2,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CarouselComp from "../components/CarouselComp";
-import DropdownComp from "../components/DropdownComp";
 import CardComp from "../components/CardComp";
 import CardImgComp from "../components/CardImgComp";
 import React, { useEffect } from 'react';
@@ -24,10 +23,11 @@ export const Home = () => {
     <Container className="ContainerComp">
       <Row className="section1">
         <Col className="CarouselDropdown" sm={6}>
+        <h3>Upcoming</h3>
           <div>
             <CarouselComp />
           </div>
-          <DropdownComp />
+         
         </Col>
         <Col className="text" sm={5}>
           <CardComp />
@@ -35,6 +35,7 @@ export const Home = () => {
       </Row>
       <Row className="firstLine">
         <Col>
+        <h3>Now Playing</h3>
           <CardImgComp />
         </Col>
       </Row>
