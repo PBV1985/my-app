@@ -19,6 +19,7 @@ export const Home = () => {
       });
      
 }, [])
+
   return (
     <Container className="ContainerComp">
       <Row className="section1">

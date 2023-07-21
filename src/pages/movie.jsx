@@ -32,7 +32,7 @@ export const Movie = () => {
 
   return (
     <Container>
-      <Row className="">
+      <Row className="movie">
         <h3>{movie.title}</h3>
         <div className="genres d-flex ">
           {genres &&
@@ -41,8 +41,8 @@ export const Movie = () => {
             })}
         </div>
         <Col sm={5}>
-          <Card className="">
-            {" "}
+          <Card className="poster">
+            {""}
             <Card.Img
               variant="top"
               src={`${imgURL}${movie.poster_path}`}
