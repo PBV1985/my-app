@@ -24,7 +24,7 @@ function NavScrollExample() {
   const [search, setSearch] = useState([]);
   const [query, setQuery] = useState('');
   const [loggedUser, setLoggedUser] = useState('');
-  const [logoutUser, setLogoutUser] = useState ('');
+
 
 
   const searchMovie = async (query) => {
@@ -34,7 +34,7 @@ function NavScrollExample() {
       const res = await fetch(url);
       const data = await res.json();
       setSearch(data.results);
-      console.log(data.results);
+     
     }
     catch (e) {
       console.log(e);
@@ -48,20 +48,12 @@ function NavScrollExample() {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       const uid = user.uid;
-      setLogoutUser(uid);
+      setLoggedUser(uid);
     } else {
       console.log("user is logged out")
     }
   });
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const uid = user.uid;
-      setLoggedUser(uid);
-    } else {
-      console.log("user is login")
-    }
-  });
 
 
 
@@ -86,10 +78,10 @@ function NavScrollExample() {
               navbarScroll
             >
               <Nav.Link href="/">Home</Nav.Link>
-              {(logoutUser &&
+              {(loggedUser &&
               <Nav.Link href="/favorites">Favorites</Nav.Link>
               )}
-              {(logoutUser &&
+              {(loggedUser &&
               <Nav.Link href="/signUp" onClick={handleLogout}>Logout</Nav.Link> )}
              {!loggedUser && (
               <Nav.Link href="/signUp">SignUp</Nav.Link>

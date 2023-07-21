@@ -20,6 +20,9 @@ export const App = () => {
     favoritesState,
     favoritesDispatch
   };
+
+
+
   return (
   
     <FavoritesContext.Provider value={favoritesContextValue}>
