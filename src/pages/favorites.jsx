@@ -35,7 +35,7 @@ export function Favorites() {
           return (
              <Col sm={5} className="col-sm d-flex">
               <Card key={movie.id} className="col-sm d-flex">
-              <img src={`${imgURL}${movie.image}`} alt="" />
+              <img src={`${imgURL}${movie.image}`} alt="movie_image" />
               <h2 className="col-sm d-flex" >{movie.title}</h2>
               <Button 
                 variant="danger"
