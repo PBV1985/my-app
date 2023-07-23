@@ -4,6 +4,10 @@ import { FavoritesContext } from "../Favorites/context";
 import Button from "react-bootstrap/Button";
 import { removeFromFavorites } from "../Favorites/actions";
 import { config } from "../api/config.js";
+import { Card, Container } from "react-bootstrap";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 
 const imgURL = config.ImageBaseUrl;
 
@@ -19,27 +23,33 @@ export function Favorites() {
   }
 
   return (
-    <div>
+  
+    
+      <Container>
+        <Row  xs={1} md={4} className="g-4 ">
       {/* Afisam produsele favorite pe ecran. */}
       {favoritesState.movies.length === 0 ? (
         <h1>Nu ai filme favorite.</h1>
       ) : (
         favoritesState.movies.map((movie) => {
           return (
-            <div key={movie.id} className="my-3">
+             <Col sm={5} className="col-sm d-flex">
+              <Card key={movie.id} className="col-sm d-flex">
               <img src={`${imgURL}${movie.image}`} alt="" />
-              <h2>{movie.title}</h2>
-              <Button
+              <h2 className="col-sm d-flex" >{movie.title}</h2>
+              <Button 
                 variant="danger"
                 // Apelam functia ce va declansa actiunea de stergere a produsului, cu payload-ul aferent.
                 onClick={() => handleRemove(movie.id)}
               >
                 Șterge de la favorite
               </Button>
-            </div>
+            </Card>
+            </Col>       
           );
         })
       )}
-    </div>
+      </Row>
+    </Container>  
   );
 }

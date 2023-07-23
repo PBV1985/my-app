@@ -50,7 +50,7 @@ function GridExample() {
                   <Card.Title className="col-sm d-flex shadow-lg bg-body-tertiary rounded">
                     {movie.title}
                   </Card.Title>
-                  <Card.Text className="align-items-start col-9">
+                  <Card.Text className="col-sm d-flex align-items-start col-9">
                     {movie.release_date}
                   </Card.Text>
                 </Card.Body>
