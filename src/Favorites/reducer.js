@@ -1,8 +1,9 @@
 // State-ul initial:
-export const initialState = {
-    movies: []
-  };
-  
+const savedFavorites = localStorage.getItem("favorites");
+export const initialState = savedFavorites
+  ? JSON.parse(savedFavorites)
+  : { movies: [] };
+
   export function favoritesReducer(state, action) {
     switch (action.type) {
       case "ADD_TO_FAVORITES": {
@@ -37,4 +38,3 @@ export const initialState = {
       }
     }
   }
-  

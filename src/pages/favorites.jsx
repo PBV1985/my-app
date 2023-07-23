@@ -27,7 +27,7 @@ export function Favorites() {
         favoritesState.movies.map((movie) => {
           return (
             <div key={movie.id} className="my-3">
-              <img src={`${imgURL}${movie.poster_path}`} alt="" />
+              <img src={`${imgURL}${movie.image}`} alt="" />
               <h2>{movie.title}</h2>
               <Button
                 variant="danger"

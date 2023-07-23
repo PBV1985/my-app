@@ -5,15 +5,12 @@ import { Movie } from "./pages/movie";
 import { SignUp } from "./pages/signUp";
 import { Actor } from "./pages/actor";
 import { Favorites } from "./pages/favorites";
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 import {
   initialState as favoritesInitialState,
   favoritesReducer
 } from "./Favorites/reducer";
 import { FavoritesContext } from "./Favorites/context";
-
-
-
 
 export const AppRouter = () => {
 
@@ -21,11 +18,16 @@ export const AppRouter = () => {
     favoritesReducer,
     favoritesInitialState
   );
+
+  // Add an effect to save the favoritesState in local storage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favoritesState));
+  }, [favoritesState]);
+
   const favoritesContextValue = {
     favoritesState,
     favoritesDispatch
   };
-
 
   return (
     
