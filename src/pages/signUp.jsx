@@ -5,11 +5,9 @@ import { auth } from "../firebase";
 import {database} from '../firebase'
 import {ref,push,child,update} from "firebase/database";
 
-
 export const SignUp = ()=> {
 
     const navigate = useNavigate(); 
-
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
@@ -23,30 +21,24 @@ export const SignUp = ()=> {
               // Signed in
               const user = userCredential.user;
               console.log(user);
-              navigate("/login")
-              
+              navigate("/login")   
           })
           .catch((error) => {
               const errorCode = error.code;
               const errorMessage = error.message;
               console.log(errorCode, errorMessage);
           });
-
           let obj = {
               name : name,
               email:email,
               username:username,
-              password:password,
-              
+              password:password,    
           }       
       const newPostKey = push(child(ref(database), 'posts')).key;
       const updates = {};
       updates['/' + newPostKey] = obj
       return update(ref(database), updates);
-   
-     
       }
-  
     return ( 
         <div className="box">
         <span className="borderLine"></span>
@@ -72,14 +64,10 @@ export const SignUp = ()=> {
                 <span>Password</span>
                 <i></i>
             </div>
-            
             <div className="links">
                 <a href="/login">Login</a>
             </div>
-           
-            <input onClick={onSubmit} type="submit"  value="Sign up"/>
-            
-            
+            <input onClick={onSubmit} type="submit"  value="Sign up"/>  
         </form>
     </div>   
     );

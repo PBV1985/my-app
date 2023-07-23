@@ -31,7 +31,7 @@ function MoviesComp() {
   return (
     <Row xs={1} md={4} className="g-4 ">
       {movies &&
-        movies.map((movie,index) => {
+        movies.map((movie, index) => {
           return (
             <>
               {movie.poster_path && (

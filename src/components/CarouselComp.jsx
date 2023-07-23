@@ -9,30 +9,30 @@ function ControlledCarousel() {
   const baseURL = config.apiBaseUrl
   const apiKey = config.apiKey
   const imgURL = config.ImageBaseUrl;
-  
+
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
 
   const [movies, setMovies] = useState([]);
-  useEffect (() => {
+  useEffect(() => {
     fetch(`${baseURL}movie/upcoming?api_key=${apiKey}`)
-    .then ((response)=>response.json())
-    .then ((data)=>{
-      setMovies(data.results)
-    });
-  },[]);
+      .then((response) => response.json())
+      .then((data) => {
+        setMovies(data.results)
+      });
+  }, []);
 
 
   return (
     <Carousel activeIndex={index} onSelect={handleSelect}>
-      {movies.map((movie) =>(
+      {movies.map((movie) => (
         <Carousel.Item key={movie.id}>
           <RouterLink to={`/movie/${movie.id}`}>
             <img className="d-block w-100"
-            src = {`${imgURL}${movie.poster_path}`}
-            alt='slide'/>
+              src={`${imgURL}${movie.poster_path}`}
+              alt='slide' />
           </RouterLink>
           <Carousel.Caption>
             <p>{movie.realease_date}</p>
@@ -40,8 +40,7 @@ function ControlledCarousel() {
         </Carousel.Item>
       )
       )}
-      
-        
+
     </Carousel>
   );
 }

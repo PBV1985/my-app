@@ -9,26 +9,26 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../firebase';
 
 export const Home = () => {
-  useEffect(()=>{
+  useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-        if (user) {
-          const uid = user.uid;
-        } else {
-          console.log("user is logged out")
-        }
-      });
-     
-}, [])
+      if (user) {
+        const uid = user.uid;
+      } else {
+        console.log("user is logged out")
+      }
+    });
+
+  }, [])
 
   return (
     <Container className="ContainerComp">
       <Row className="section1">
         <Col className="CarouselDropdown" sm={6}>
-        <h3>Upcoming</h3>
+          <h3>Upcoming</h3>
           <div>
             <CarouselComp />
           </div>
-         
+
         </Col>
         <Col className="text" sm={5}>
           <CardComp />
@@ -36,7 +36,7 @@ export const Home = () => {
       </Row>
       <Row className="firstLine">
         <Col>
-        <h3>Now Playing</h3>
+          <h3>Now Playing</h3>
           <CardImgComp />
         </Col>
       </Row>

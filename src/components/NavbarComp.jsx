@@ -37,7 +37,7 @@ function NavScrollExample() {
       const res = await fetch(url);
       const data = await res.json();
       setSearch(data.results);
-     
+
     }
     catch (e) {
       console.log(e);
@@ -73,7 +73,7 @@ function NavScrollExample() {
             >
               <Nav.Link href="/">Home</Nav.Link>
               {isUserLoggedIn && <Nav.Link href="/favorites">Favorites</Nav.Link>}
-              {isUserLoggedIn && <Nav.Link href="/signUp" onClick={handleLogout}>Logout</Nav.Link>} 
+              {isUserLoggedIn && <Nav.Link href="/signUp" onClick={handleLogout}>Logout</Nav.Link>}
               {!isUserLoggedIn && <Nav.Link href="/signUp">SignUp</Nav.Link>}
               {!isUserLoggedIn && <Nav.Link href="/login">Login</Nav.Link>}
             </Nav>

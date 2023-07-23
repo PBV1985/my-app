@@ -16,7 +16,7 @@ const imgURL = config.ImageBaseUrl;
 function GridExample() {
   const [movies, setMovies] = useState([]);
   const { favoritesDispatch } = useContext(FavoritesContext);
-  
+
   useEffect(() => {
     fetch(`${baseURL}discover/movie?api_key=${apiKey}`)
       .then((response) => response.json())
@@ -56,7 +56,7 @@ function GridExample() {
                 </Card.Body>
                 <Button
                   variant="outline-success"
-                  onClick={() => { 
+                  onClick={() => {
                     handleAddToFavourites({
                       id: movie.id,
                       image: movie.poster_path,
@@ -64,7 +64,7 @@ function GridExample() {
                     });
                   }}>
                   Adaugă la favorite
-                  </Button>
+                </Button>
               </Card>
             </Col>
           );
