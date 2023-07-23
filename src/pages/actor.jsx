@@ -18,10 +18,10 @@ export const Actor = () => {
   id = decodeURI(id);
 
   useEffect(() => {
-    const person = JSON.parse(localStorage.getItem("person"));
-    if (person) {
-      setPerson(person);
-    }
+    // const person = JSON.parse(localStorage.getItem("person"));
+    // if (person) {
+    //   setPerson(person);
+    // }
     fetch(`${baseURL}person/${id}?api_key=${apiKey}`)
       .then((response) => response.json())
       .then((data) => {

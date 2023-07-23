@@ -18,10 +18,10 @@ export const Movie = () => {
   id = decodeURI(id);
   const [genres, setGenres] = useState([]);
   useEffect(() => {
-    const movie = JSON.parse(localStorage.getItem("movie"));
-    if (movie) {
-      setMovie(movie);
-    }
+    // const movie = JSON.parse(localStorage.getItem("movie"));
+    // if (movie) {
+    //   setMovie(movie);
+    // }
     fetch(`${baseURL}movie/${id}?api_key=${apiKey}`)
       .then((response) => response.json())
       .then((data) => {
